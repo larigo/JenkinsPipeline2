@@ -28,12 +28,14 @@ pipeline {
                 }
             }
             stage ('Step-4: Run'){
+			    steps{
                     dir ('my-app') {
                          sh "java -cp ./target/classes ru.apache_maven.App"
                     }
                 }
             }
-        post {
+
+		post {
             success {
                 mail (to: "${params.EmailAdress}", subject: "Job '${env.JOB_NAME}' Build(#${env.BUILD_NUMBER}) Succeded" , body: "Job:'${env.JOB_NAME}' on Build:(#${env.BUILD_NUMBER}) Succesesfully ran.")
             }
