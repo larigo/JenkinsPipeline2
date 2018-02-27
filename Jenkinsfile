@@ -33,7 +33,6 @@ pipeline {
                     }
                 }
             }
-        }
         post {
             success {
                 mail (to: "${params.EmailAdress}", subject: "Job '${env.JOB_NAME}' Build(#${env.BUILD_NUMBER}) Succeded" , body: "Job:'${env.JOB_NAME}' on Build:(#${env.BUILD_NUMBER}) Succesesfully ran.")
