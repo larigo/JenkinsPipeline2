@@ -9,28 +9,28 @@ pipeline {
             stage('Step-1: Clean Maven ') {
                 steps {
                     dir ('my-app') {
-                        sh "mvn clean"
+                        bat "mvn clean"
                     }
                 }
             }
             stage('Step-2: Compiling And Creating The Job') {
                 steps{
                     dir ('my-app') {
-                        sh "mvn package"
+                        bat "mvn package"
                     }
                 }   
             }
             stage('Step-3: Executing the jar file') {
                 steps{
                     dir ('my-app') {
-                        sh "java -jar ./target/my-app-1.0-SNAPSHOT.jar"
+                        bat "java -jar ./target/my-app-1.0-SNAPbatOT.jar"
                     }
                 }
             }
             stage ('Step-4: Run'){
 			    steps{
                     dir ('my-app') {
-                         sh "java -cp ./target/classes ru.apache_maven.App"
+                         bat "java -cp ./target/classes ru.apache_maven.App"
                     }
                 }
             }
