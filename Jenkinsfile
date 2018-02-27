@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'username', defaultValue: 'jenkins', description: 'Username to use for scp')
-        string(name: 'local_server', defaultValue: '192.168.186.1', description: 'Developers Server')
+        string(name: 'username', defaultValue: 'u1', description: 'Current Username')
+        string(name: 'local_server', defaultValue: '192.168.186.1', description: 'My Computer')
         string(name: 'EmailAdress', defaultValue: 'ig.larionov@gmail.com', description: 'Notifications Email Address')
     }
     stages {
@@ -27,12 +27,9 @@ pipeline {
                     }
                 }
             }
-            stage ('step-4: Deployments'){
-               parallel{
-                    stage ('Deploy to Staging'){
-                        steps {
-                            dir ('my-app') {
-                                sh "scp -i /var/lib/jenkins/jenkins.pem ./target/*.jar ${params.username}@${params.local_server}:/home/jenkins/helloworld_maven"
+            stage ('Step-4: Run'){
+                    dir ('my-app') {
+                         sh "java -cp ./target/classes ru.apache_maven.App"
                             }
                         }
                     }
