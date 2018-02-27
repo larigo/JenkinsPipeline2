@@ -30,7 +30,7 @@ pipeline {
             stage ('Step-4: Run'){
 			    steps{
                     dir ('my-app') {
-                         bat "java -cp ./target/classes ru.apache_maven.App"
+                         bat "java -cp ./target/classes com.mycompany.app.App"
 					}
                 }
             }
