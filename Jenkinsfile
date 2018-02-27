@@ -6,28 +6,28 @@ pipeline {
         string(name: 'EmailAdress', defaultValue: 'ig.larionov@gmail.com', description: 'Notifications Email Address')
     }
     stages {
-            stage('Step-1: Clean Maven ') {
+            stage('stage-1: Clean Maven ') {
                 steps {
                     dir ('my-app') {
                         bat "mvn clean"
 					}
                 }
             }
-            stage('Step-2: Compiling And Creating The Job') {
+            stage('stage-2: Compiling And Creating The Job') {
                 steps{
                     dir ('my-app') {
                         bat "mvn package"
 					}
                 }
             }
-            stage('Step-3: Executing the jar file') {
+            stage('stage-3: Executing the jar file') {
                 steps{
                     dir ('my-app') {
-                        bat "java -jar ./target/my-app-1.0-SNAPSHOT.jar"
+                        bat "java -jar ./target/my-app-1.0-SNAPbatOT.jar"
 					}
                 }
             }
-            stage ('Step-4: Run'){
+            stage ('stage-4: Run'){
 			    steps{
                     dir ('my-app') {
                          bat "java -cp ./target/classes com.mycompany.app.App"
