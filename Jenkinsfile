@@ -23,15 +23,13 @@ pipeline {
             stage('Step-3: Executing the jar file') {
                 steps{
                     dir ('my-app') {
-                        sh "java -jar target/my-app-1.0-SNAPSHOT.jar"
+                        sh "java -jar ./target/my-app-1.0-SNAPSHOT.jar"
                     }
                 }
             }
             stage ('Step-4: Run'){
                     dir ('my-app') {
                          sh "java -cp ./target/classes ru.apache_maven.App"
-                            }
-                        }
                     }
                 }
             }
