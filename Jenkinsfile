@@ -35,12 +35,5 @@ pipeline {
                 }
             }
 
-		post {
-            success {
-                mail (to: "${params.EmailAdress}", subject: "Job '${env.JOB_NAME}' Build(#${env.BUILD_NUMBER}) Succeded" , body: "Job:'${env.JOB_NAME}' on Build:(#${env.BUILD_NUMBER}) Succesesfully ran.")
-            }
-            failure {
-                mail (to: "${params.EmailAdress}", subject: "Job '${env.JOB_NAME}' Build(#${env.BUILD_NUMBER}) Failed" , body: " Job:'${env.JOB_NAME}' on Build:(#${env.BUILD_NUMBER}) Failed To run, go back to Debug!")
-            }
-        }
-    }
+	}
+	
