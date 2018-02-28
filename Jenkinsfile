@@ -23,7 +23,7 @@ pipeline {
             stage('Executing the jar file') {
                 steps{
                     dir ('my-app') {
-                        bat "java -jar ./target/my-app-1.0-SNAPbatOT.jar"
+                        bat "java -jar ./target/my-app-1.0.jar"
 					}
                 }
             }
