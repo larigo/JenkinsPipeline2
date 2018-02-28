@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    parameters {
-        #string(name: 'username', defaultValue: 'u1', description: 'Current Username')
-        #string(name: 'local_server', defaultValue: '192.168.186.1', description: 'My Computer')
-        #string(name: 'EmailAdress', defaultValue: 'ig.larionov@gmail.com', description: 'Notifications Email Address')
-    }
+
     stages {
             stage('stage-1: Clean Maven ') {
                 steps {
